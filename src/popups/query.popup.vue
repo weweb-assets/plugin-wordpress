@@ -16,7 +16,7 @@
             Query
             <a
                 class="ww-editor-button -secondary -small m-left"
-                :href="`//${settings.privateData.url}/cec-gestion/admin.php?page=graphiql-ide`"
+                :href="`//${url}/cec-gestion/admin.php?page=graphiql-ide`"
                 target="_blank"
             >
                 <wwEditorIcon class="ww-editor-button-icon -left" name="open-out" small />
@@ -67,6 +67,7 @@ export default {
                 { value: 'asc', label: 'Asc', default: true },
                 { value: 'desc', label: 'Desc' },
             ],
+            url: '',
             query: {
                 id: wwLib.wwUtils.getUid(),
                 name: undefined,
@@ -82,7 +83,7 @@ export default {
     },
     computed: {
         isSetup() {
-            return !!this.query.name && !!this.query.name.length && !!this.query.query && !!this.query.query.length ;
+            return !!this.query.name && !!this.query.name.length && !!this.query.query && !!this.query.query.length;
         },
     },
     methods: {
@@ -102,6 +103,7 @@ export default {
     },
     created() {
         this.query = this.options.data.query || this.query;
+        this.url = this.options.data.url || this.url;
         this.options.result.query = this.query;
         this.options.setButtonState('SAVE', this.isSetup ? 'ok' : 'disabled');
     },
