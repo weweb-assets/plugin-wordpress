@@ -11,6 +11,28 @@
             placeholder="https://my-wordpress-url.com"
             v-model="settings.privateData.url"
         />
+        <label class="wordpress-configuration__label caption-s" for="admin-endpoint">
+            Admin endpoint
+            <div class="wordpress-configuration__label-required">optional</div>
+        </label>
+        <input
+            type="text"
+            name="admin-endpoint"
+            class="wordpress-configuration__input caption-m ww-editor-input -large"
+            placeholder="wp-admin"
+            v-model="settings.privateData.adminEndpoint"
+        />
+        <label class="wordpress-configuration__label caption-s" for="graphql-endpoint">
+            GraphQL endpoint
+            <div class="wordpress-configuration__label-required">optional</div>
+        </label>
+        <input
+            type="text"
+            name="graphql-endpoint"
+            class="wordpress-configuration__input caption-m ww-editor-input -large"
+            placeholder="graphql"
+            v-model="settings.privateData.graphqlEndpoint"
+        />
         <div class="wordpress-configuration__delete-zone danger-zone">
             <span class="wordpress-configuration__delete-zone-label">DANGER ZONE</span>
             <button
@@ -92,6 +114,10 @@ export default {
             try {
                 if (this.settings.privateData.url.endsWith('/'))
                     this.settings.privateData.url = this.settings.privateData.url.slice(0, -1);
+                if (!this.settings.privateData.adminEndpoint)
+                    this.settings.privateData.adminEndpoint = this.settings.privateData.adminEndpoint || 'ww-admin';
+                if (!this.settings.privateData.graphqlEndpoint)
+                    this.settings.privateData.graphqlEndpoint = this.settings.privateData.graphqlEndpoint || 'graphql';
                 const plugin = wwLib.wwPlugins.pluginWordpress;
                 plugin.settings = await wwLib.wwPlugin.saveSettings(
                     plugin.id,

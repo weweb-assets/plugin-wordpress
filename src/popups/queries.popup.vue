@@ -46,7 +46,10 @@ export default {
             try {
                 const result = await wwLib.wwPopups.open({
                     firstPage: 'WORDPRESS_ADD_QUERY_POPUP',
-                    data: { url: this.settings.privateData.url },
+                    data: {
+                        url: this.settings.privateData.url,
+                        adminEndpoint: this.settings.privateData.adminEndpoint,
+                    },
                 });
                 this.settings.privateData.queries.push(result.query);
             } catch (err) {
@@ -57,7 +60,11 @@ export default {
             try {
                 const result = await wwLib.wwPopups.open({
                     firstPage: 'WORDPRESS_EDIT_QUERY_POPUP',
-                    data: { url: this.settings.privateData.url, query },
+                    data: {
+                        url: this.settings.privateData.url,
+                        adminEndpoint: this.settings.privateData.adminEndpoint,
+                        query,
+                    },
                 });
                 this.settings.privateData.queries.splice(index, 1, result.query);
             } catch (err) {

@@ -14,9 +14,7 @@
         />
         <label class="wordpress-query__label caption-s" for="query-wordpress">
             Query
-            <a class="wordpress-query__link" :href="`${url}/cec-gestion/admin.php?page=graphiql-ide`" target="_blank">
-                Construct query here
-            </a>
+            <a class="wordpress-query__link" :href="graphiqlUrl" target="_blank"> Construct query here </a>
             <div class="wordpress-query__label-required">required</div>
         </label>
         <textarea
@@ -60,6 +58,7 @@ export default {
     data() {
         return {
             url: '',
+            adminEndpoint: 'wp-admin',
             query: {
                 id: wwLib.wwUtils.getUid(),
                 name: undefined,
@@ -77,10 +76,14 @@ export default {
         isSetup() {
             return !!this.query.name && !!this.query.name.length && !!this.query.query && !!this.query.query.length;
         },
+        graphiqlUrl() {
+            return `${this.url}/${this.adminEndpoint}/admin?page=graphiql-ide`;
+        },
     },
     created() {
         this.query = this.options.data.query || this.query;
         this.url = this.options.data.url || this.url;
+        this.adminEndpoint = this.options.data.adminEndpoint || this.adminEndpoint;
         this.options.result.query = this.query;
         this.options.setButtonState('SAVE', this.isSetup ? 'ok' : 'disabled');
     },

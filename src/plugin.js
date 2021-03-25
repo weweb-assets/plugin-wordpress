@@ -42,6 +42,8 @@ export default {
         data: {},
         privateData: {
             url: '',
+            adminEndpoint: '',
+            graphqlEndpoint: '',
             queries: [],
         },
     },
@@ -54,6 +56,8 @@ export default {
         const plugin = wwLib.wwPlugins.pluginWordpress;
         if (plugin.id) plugin.settings = (await wwLib.wwPlugin.getSettings(plugin.id)) || this.settings;
         if (!plugin.settings.privateData.url) plugin.settings.privateData.url = '';
+        if (!plugin.settings.privateData.adminEndpoint) plugin.settings.privateData.adminEndpoint = 'wp-admin';
+        if (!plugin.settings.privateData.graphqlEndpoint) plugin.settings.privateData.graphqlEndpoint = 'graphql';
         if (!plugin.settings.privateData.queries) plugin.settings.privateData.queries = defaultValue;
         if (plugin.isNew && !plugin.settings.privateData.url.length) {
             this.sidebarButton();
