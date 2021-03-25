@@ -61,8 +61,8 @@ export default {
         async deletePlugin() {
             const confirm = await wwLib.wwModals.open({
                 title: {
-                    en: 'Delete plugin Wordpress?',
-                    fr: 'Supprimer le plugin Wordpress ?',
+                    en: 'Delete plugin WordPress?',
+                    fr: 'Supprimer le plugin WordPress ?',
                 },
                 text: {
                     en: 'Are you sure you want to delete the plugin from your website?',

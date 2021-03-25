@@ -1,7 +1,7 @@
 <template>
     <div class="ww-popup-wordpress-configuration">
         <label class="wordpress-configuration__label caption-s" for="url">
-            Wordpress URL
+            WordPress URL
             <div class="wordpress-configuration__label-required">required</div>
         </label>
         <input
@@ -56,8 +56,8 @@ export default {
             const plugin = wwLib.wwPlugins.pluginWordpress;
             const confirm = await wwLib.wwModals.open({
                 title: {
-                    en: 'Delete plugin Wordpress?',
-                    fr: 'Supprimer le plugin Wordpress ?',
+                    en: 'Delete plugin WordPress?',
+                    fr: 'Supprimer le plugin WordPress ?',
                 },
                 text: {
                     en: 'Are you sure you want to delete the plugin from your website?',

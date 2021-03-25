@@ -14,8 +14,8 @@ wwLib.wwPopups.addPopup('wordpressWebhooksPopup', webhooksPopup);
 
 wwLib.wwPopups.addStory('WORDPRESS_POPUP', {
     title: {
-        en: 'Wordpress',
-        fr: 'Wordpress',
+        en: 'WordPress',
+        fr: 'WordPress',
     },
     type: 'wordpressSettingsPopup',
     size: wwLib.wwPopups.SIZES.MEDIUM,
@@ -23,8 +23,8 @@ wwLib.wwPopups.addStory('WORDPRESS_POPUP', {
 
 wwLib.wwPopups.addStory('WORDPRESS_CONFIGURATION_POPUP', {
     title: {
-        en: 'Wordpress - Configuration',
-        fr: 'Wordpress - Configuration',
+        en: 'WordPress - Configuration',
+        fr: 'WordPress - Configuration',
     },
     type: 'wordpressConfigurationPopup',
     size: wwLib.wwPopups.SIZES.MEDIUM,
@@ -41,8 +41,8 @@ wwLib.wwPopups.addStory('WORDPRESS_CONFIGURATION_POPUP', {
 
 wwLib.wwPopups.addStory('WORDPRESS_QUERIES_POPUP', {
     title: {
-        en: 'Wordpress - Queries',
-        fr: 'Wordpress - Queries',
+        en: 'WordPress - Queries',
+        fr: 'WordPress - Queries',
     },
     type: 'wordpressQueriesPopup',
     size: wwLib.wwPopups.SIZES.MEDIUM,
@@ -59,8 +59,8 @@ wwLib.wwPopups.addStory('WORDPRESS_QUERIES_POPUP', {
 
 wwLib.wwPopups.addStory('WORDPRESS_ADD_QUERY_POPUP', {
     title: {
-        en: 'Wordpress - Add query',
-        fr: 'Wordpress - Ajouter une query',
+        en: 'WordPress - Add query',
+        fr: 'WordPress - Ajouter une query',
     },
     type: 'wordpressQueryPopup',
     size: wwLib.wwPopups.SIZES.MEDIUM,
@@ -76,8 +76,8 @@ wwLib.wwPopups.addStory('WORDPRESS_ADD_QUERY_POPUP', {
 
 wwLib.wwPopups.addStory('WORDPRESS_EDIT_QUERY_POPUP', {
     title: {
-        en: 'Wordpress - Edit query',
-        fr: 'Wordpress - Editer la query',
+        en: 'WordPress - Edit query',
+        fr: 'WordPress - Editer la query',
     },
     type: 'wordpressQueryPopup',
     size: wwLib.wwPopups.SIZES.MEDIUM,
@@ -93,8 +93,8 @@ wwLib.wwPopups.addStory('WORDPRESS_EDIT_QUERY_POPUP', {
 
 wwLib.wwPopups.addStory('WORDPRESS_WEBHOOKS_POPUP', {
     title: {
-        en: 'Wordpress - Webhooks',
-        fr: 'Wordpress - Webhooks',
+        en: 'WordPress - Webhooks',
+        fr: 'WordPress - Webhooks',
     },
     type: 'wordpressWebhooksPopup',
     size: wwLib.wwPopups.SIZES.MEDIUM,
@@ -110,8 +110,8 @@ wwLib.wwPopups.addStory('WORDPRESS_WEBHOOKS_POPUP', {
 
 wwLib.wwPopups.addStory('WORDPRESS_SYNCHRONIZATION_POPUP', {
     title: {
-        en: 'Wordpress - Synchronization',
-        fr: 'Wordpress - Synchronization',
+        en: 'WordPress - Synchronization',
+        fr: 'WordPress - Synchronization',
     },
     type: 'wordpressSynchronizationPopup',
     size: wwLib.wwPopups.SIZES.MEDIUM,

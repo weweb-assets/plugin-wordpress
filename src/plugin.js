@@ -66,7 +66,7 @@ export default {
     \================================================================================================*/
     async sync(query) {
         try {
-            await wwLib.wwPlugin.saveCmsDataSet(this.settings.id, query.id, query.name, query.displayBy, 'Wordpress');
+            await wwLib.wwPlugin.saveCmsDataSet(this.settings.id, query.id, query.name, query.displayBy, 'WordPress');
 
             wwLib.wwNotification.open({
                 text: {
