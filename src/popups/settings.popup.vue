@@ -12,7 +12,7 @@
         </div>
         <div class="wordpress-settings__properties" @click="next('WORDPRESS_QUERIES_POPUP')">
             <wwEditorIcon class="wordpress-settings__properties-icon -left" name="bind" />
-            <div class="wordpress-settings__properties-name paragraph-s">Query</div>
+            <div class="wordpress-settings__properties-name paragraph-s">Queries</div>
             <wwEditorIcon class="wordpress-settings__properties-icon -right" name="chevron-forward" />
         </div>
         <div class="wordpress-settings__properties" @click="next('WORDPRESS_CONFIGURATION_POPUP')">
