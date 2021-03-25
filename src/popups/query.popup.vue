@@ -1,32 +1,27 @@
 <template>
-    <div class="ww-popup-wordpress-content-type">
-        <label class="wordpress-content-type__label caption-s" for="name-wordpress">
+    <div class="ww-popup-wordpress-query">
+        <label class="wordpress-query__label caption-s" for="name-wordpress">
             Name
-            <div class="wordpress-content-type__label-required">required</div>
+            <div class="wordpress-query__label-required">required</div>
         </label>
         <input
             type="text"
             name="name-wordpress"
-            class="wordpress-content-type__input caption-m ww-editor-input -large"
+            class="wordpress-query__input caption-m ww-editor-input -large"
             placeholder="Posts"
             v-model="query.name"
             autofocus
         />
-        <label class="wordpress-content-type__label caption-s" for="query-wordpress">
+        <label class="wordpress-query__label caption-s" for="query-wordpress">
             Query
-            <a
-                class="wordpress-content-type__link"
-                :href="`${url}/cec-gestion/admin.php?page=graphiql-ide`"
-                target="_blank"
-            >
-                <wwEditorIcon class="ww-editor-button-icon -left" name="open-out" small />
-                Construct it here
+            <a class="wordpress-query__link" :href="`${url}/cec-gestion/admin.php?page=graphiql-ide`" target="_blank">
+                Construct query here
             </a>
-            <div class="wordpress-content-type__label-required">required</div>
+            <div class="wordpress-query__label-required">required</div>
         </label>
         <textarea
             name="query-wordpress"
-            class="wordpress-content-type__input caption-m ww-editor-input -textarea -large"
+            class="wordpress-query__input caption-m ww-editor-input -textarea -large"
             rows="11"
             :placeholder="`query MyQuery {
     posts {
@@ -37,14 +32,14 @@
 }`"
             v-model="query.query"
         />
-        <label class="wordpress-content-type__label caption-s" for="display-by-wordpress">
+        <label class="wordpress-query__label caption-s" for="display-by-wordpress">
             Display by
-            <div class="wordpress-content-type__label-required">optional</div>
+            <div class="wordpress-query__label-required">optional</div>
         </label>
         <input
             type="text"
             name="display-by-wordpress"
-            class="wordpress-content-type__input caption-m ww-editor-input -large"
+            class="wordpress-query__input caption-m ww-editor-input -large"
             placeholder="Title"
             v-model="query.displayBy"
         />
@@ -64,10 +59,6 @@ export default {
     },
     data() {
         return {
-            directionOptions: [
-                { value: 'asc', label: 'Asc', default: true },
-                { value: 'desc', label: 'Desc' },
-            ],
             url: '',
             query: {
                 id: wwLib.wwUtils.getUid(),
@@ -87,21 +78,6 @@ export default {
             return !!this.query.name && !!this.query.name.length && !!this.query.query && !!this.query.query.length;
         },
     },
-    methods: {
-        addSort() {
-            if (!this.query.sort) this.query.sort = [];
-            this.query.sort.push({ field: '', direction: 'asc' });
-            this.$forceUpdate();
-        },
-        updateSort(sort, event) {
-            sort.direction = event;
-            this.$forceUpdate();
-        },
-        deleteSort(index) {
-            this.query.sort.splice(index, 1);
-            this.$forceUpdate();
-        },
-    },
     created() {
         this.query = this.options.data.query || this.query;
         this.url = this.options.data.url || this.url;
@@ -112,12 +88,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.ww-popup-wordpress-content-type {
+.ww-popup-wordpress-query {
     position: relative;
     display: flex;
     flex-direction: column;
     padding: var(--ww-spacing-03) 0;
-    .wordpress-content-type {
+    .wordpress-query {
         &__label {
             display: flex;
             align-items: center;

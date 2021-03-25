@@ -2,6 +2,7 @@
 import './popups';
 const defaultValue = [
     {
+        id: wwLib.wwUtils.getUid(),
         name: 'Posts',
         query: `query MyQuery {
     posts {
@@ -16,6 +17,7 @@ const defaultValue = [
 }`,
     },
     {
+        id: wwLib.wwUtils.getUid(),
         name: 'Pages',
         query: `query MyQuery {
     pages {
@@ -93,7 +95,7 @@ export default {
         try {
             const { id, settings } = wwLib.wwPlugins.pluginWordpress;
             const isSetup = !!settings.privateData.url.length;
-            const isFirstTime = !settings.privateData.queries.length;
+            const isFirstTime = !isSetup;
             await wwLib.wwPopups.open({
                 firstPage: isSetup ? 'WORDPRESS_POPUP' : 'WORDPRESS_CONFIGURATION_POPUP',
                 data: {

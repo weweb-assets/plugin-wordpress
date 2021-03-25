@@ -1,12 +1,12 @@
 <template>
-    <div class="ww-popup-wordpress-content-types">
-        <button class="wordpress-content-types__all ww-editor-button -primary" @click="addQuery">Add query</button>
-        <div class="wordpress-content-types__row" v-for="(query, index) in settings.privateData.queries" :key="index">
+    <div class="ww-popup-wordpress-queries">
+        <button class="wordpress-queries__all ww-editor-button -primary" @click="addQuery">Add query</button>
+        <div class="wordpress-queries__row" v-for="(query, index) in settings.privateData.queries" :key="index">
             <div class="paragraph-m">{{ query.name }}</div>
             <button class="ww-editor-button -secondary -small m-auto-left" @click="editQuery(index, query)">
                 Edit
             </button>
-            <div class="wordpress-content-types__button-delete m-left" @click="deleteQuery(index)">
+            <div class="wordpress-queries__button-delete m-left" @click="deleteQuery(index)">
                 <wwEditorIcon name="delete" small />
             </div>
         </div>
@@ -133,12 +133,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.ww-popup-wordpress-content-types {
+.ww-popup-wordpress-queries {
     position: relative;
     display: flex;
     flex-direction: column;
     padding: var(--ww-spacing-03) 0;
-    .wordpress-content-types {
+    .wordpress-queries {
         &__all {
             margin: 0 auto var(--ww-spacing-02) auto;
         }
