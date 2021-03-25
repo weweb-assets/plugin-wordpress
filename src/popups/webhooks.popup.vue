@@ -1,10 +1,6 @@
 <template>
     <div class="ww-popup-wordpress-webhooks">
-        <div
-            class="wordpress-webhooks__row"
-            v-for="(query, index) in settings.privateData.queries"
-            :key="index"
-        >
+        <div class="wordpress-webhooks__row" v-for="(query, index) in settings.privateData.queries" :key="index">
             <div class="paragraph-m">{{ query.name }}</div>
             <button class="ww-editor-button -primary -green -small m-auto-left" @click="copyUrl(query)">
                 <wwEditorIcon class="ww-editor-button-icon -left" name="copy-paste" small />

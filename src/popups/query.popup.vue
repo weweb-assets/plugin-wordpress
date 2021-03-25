@@ -15,8 +15,8 @@
         <label class="wordpress-content-type__label caption-s" for="query-wordpress">
             Query
             <a
-                class="ww-editor-button -secondary -small m-left"
-                :href="`//${url}/cec-gestion/admin.php?page=graphiql-ide`"
+                class="wordpress-content-type__link"
+                :href="`${url}/cec-gestion/admin.php?page=graphiql-ide`"
                 target="_blank"
             >
                 <wwEditorIcon class="ww-editor-button-icon -left" name="open-out" small />
@@ -27,6 +27,7 @@
         <textarea
             name="query-wordpress"
             class="wordpress-content-type__input caption-m ww-editor-input -textarea -large"
+            rows="11"
             :placeholder="`query MyQuery {
     posts {
         nodes {

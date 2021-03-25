@@ -1,13 +1,7 @@
 <template>
     <div class="ww-popup-wordpress-content-types">
-        <button class="wordpress-content-types__all ww-editor-button -primary" @click="addQuery">
-            Add query
-        </button>
-        <div
-            class="wordpress-content-types__row"
-            v-for="(query, index) in settings.privateData.queries"
-            :key="index"
-        >
+        <button class="wordpress-content-types__all ww-editor-button -primary" @click="addQuery">Add query</button>
+        <div class="wordpress-content-types__row" v-for="(query, index) in settings.privateData.queries" :key="index">
             <div class="paragraph-m">{{ query.name }}</div>
             <button class="ww-editor-button -secondary -small m-auto-left" @click="editQuery(index, query)">
                 Edit
@@ -119,9 +113,7 @@ export default {
 
                 const oldQueries = this.options.data.settings.privateData.queries;
                 const newQueries = this.options.result.settings.privateData.queries;
-                const deletedQueries = oldQueries.filter(
-                    query => !newQueries.find(elem => elem.id === query.id)
-                );
+                const deletedQueries = oldQueries.filter(query => !newQueries.find(elem => elem.id === query.id));
                 deletedQueries.forEach(query => wwLib.wwPlugin.deleteCmsDataSet(query.id));
 
                 wwLib.wwPlugins.pluginWordpress.settings = plugin.settings;

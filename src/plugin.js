@@ -1,5 +1,34 @@
 /* wwEditor:start */
 import './popups';
+const defaultValue = [
+    {
+        name: 'Posts',
+        query: `query MyQuery {
+    posts {
+        nodes {
+            title
+            slug
+            content(format: RENDERED)
+            excerpt
+            date
+        }
+    }
+}`,
+    },
+    {
+        name: 'Pages',
+        query: `query MyQuery {
+    pages {
+        nodes {
+            title
+            slug
+            content(format: RENDERED)
+            date
+        }
+    }
+}`,
+    },
+];
 /* wwEditor:end */
 
 export default {
@@ -23,7 +52,7 @@ export default {
         const plugin = wwLib.wwPlugins.pluginWordpress;
         if (plugin.id) plugin.settings = (await wwLib.wwPlugin.getSettings(plugin.id)) || this.settings;
         if (!plugin.settings.privateData.url) plugin.settings.privateData.url = '';
-        if (!plugin.settings.privateData.queries) plugin.settings.privateData.queries = [];
+        if (!plugin.settings.privateData.queries) plugin.settings.privateData.queries = defaultValue;
         if (plugin.isNew && !plugin.settings.privateData.url.length) {
             this.sidebarButton();
         }
@@ -35,13 +64,7 @@ export default {
     \================================================================================================*/
     async sync(query) {
         try {
-            await wwLib.wwPlugin.saveCmsDataSet(
-                this.settings.id,
-                query.id,
-                query.name,
-                query.displayBy,
-                'Wordpress'
-            );
+            await wwLib.wwPlugin.saveCmsDataSet(this.settings.id, query.id, query.name, query.displayBy, 'Wordpress');
 
             wwLib.wwNotification.open({
                 text: {
