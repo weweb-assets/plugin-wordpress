@@ -12,6 +12,12 @@ const defaultValue = [
             content(format: RENDERED)
             excerpt
             date
+            featuredImage {
+                node {
+                    altText
+                    link
+                }
+            }
         }
     }
 }`,
