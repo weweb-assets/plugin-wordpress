@@ -55,8 +55,11 @@ export default {
     },
     methods: {
         setProp(key, value) {
-            this.$emit('update-config', { ...this.endpoint, [key]: value });
+            this.$emit('update-config', { ...this.query, [key]: value });
         },
+    },
+    mounted() {
+        this.$emit('update-config', this.query);
     },
 };
 </script>
