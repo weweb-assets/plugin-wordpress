@@ -50,7 +50,7 @@ export default {
             };
         },
         graphqlUrl() {
-            return `${this.plugin.settings.privateData.url}/${this.plugin.settings.privateData.adminEndpoint}/admin?page=graphiql-ide`;
+            return `${this.plugin.settings.privateData.url}/${this.plugin.settings.privateData.adminEndpoint}/admin.php?page=graphiql-ide`;
         },
     },
     methods: {
