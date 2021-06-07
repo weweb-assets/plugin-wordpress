@@ -1,3 +1,3 @@
-<iframe src="https://www.youtube-nocookie.com/embed/76CMCIW-wGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+You must use a GraphQL query to fetch data from your WordPress site.
 
-Select a table from a base to fetch your data.
+You can refer to [the plugin's docs](https://www.wpgraphql.com/docs/quick-start/) or try the interactive IDE on your WordPress site directly.
