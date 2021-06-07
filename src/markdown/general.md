@@ -1,4 +1,4 @@
-[WordPress](https://wordpress.com/) is the world's most popular website builder.
+<a href="https://wordpress.com/" target="_blank" class="ww-editor-link">WordPress</a> is the world's most popular website builder.
 
 This plugin will let you:
 
