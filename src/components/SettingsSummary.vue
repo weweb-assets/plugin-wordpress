@@ -1,0 +1,38 @@
+<template>
+    <div class="wp-settings-summary" v-if="isValid">
+        <wwEditorIcon name="link" class="wp-settings-summary__icon"></wwEditorIcon>
+        <span class="caption-m">{{ settings.privateData.url }}</span>
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+        plugin: { type: Object, required: true },
+        settings: { type: Object, required: true },
+    },
+    computed: {
+        isValid() {
+            return !!this.settings.privateData.url;
+        },
+    },
+    watch: {
+        isValid: {
+            immediate: true,
+            handler(value) {
+                this.$emit('update-is-valid', value);
+            },
+        },
+    },
+};
+</script>
+
+<style lang="scss" scoped>
+.wp-settings-summary {
+    display: flex;
+    align-items: center;
+    &__icon {
+        margin-right: var(--ww-spacing-02);
+    }
+}
+</style>
