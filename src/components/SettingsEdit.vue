@@ -5,10 +5,9 @@
                 type="text"
                 name="url"
                 placeholder="https://my-wordpress-url.com"
-                :value="settings.privateData.url"
-                @input="setPrivateProp('url', $event)"
-                v-on:keyup.native.enter="$emit('save')"
+                :model-value="settings.privateData.url"
                 large
+                @update:modelValue="setPrivateProp('url', $event)"
             />
         </wwEditorFormRow>
         <wwEditorFormRow label="Admin endpoint">
@@ -16,10 +15,9 @@
                 type="text"
                 name="admin-endpoint"
                 placeholder="wp-admin"
-                :value="settings.privateData.adminEndpoint"
-                @input="setPrivateProp('adminEndpoint', $event)"
-                v-on:keyup.native.enter="$emit('save')"
+                :model-value="settings.privateData.adminEndpoint"
                 large
+                @update:modelValue="setPrivateProp('adminEndpoint', $event)"
             />
         </wwEditorFormRow>
         <wwEditorFormRow label="GraphQL endpoint">
@@ -27,10 +25,9 @@
                 type="text"
                 name="graphql-endpoint"
                 placeholder="graphql"
-                :value="settings.privateData.graphqlEndpoint"
-                @input="setPrivateProp('graphqlEndpoint', $event)"
-                v-on:keyup.native.enter="$emit('save')"
+                :model-value="settings.privateData.graphqlEndpoint"
                 large
+                @update:modelValue="setPrivateProp('graphqlEndpoint', $event)"
             />
         </wwEditorFormRow>
     </div>
@@ -39,36 +36,23 @@
 <script>
 export default {
     props: {
-        plugin: { type: Object, required: true },
         settings: { type: Object, required: true },
     },
-    watch: {
-        isValid: {
-            immediate: true,
-            handler(value) {
-                this.$emit('update-is-valid', value);
-            },
-        },
-    },
-    computed: {
-        isValid() {
-            return !!this.settings.privateData.url;
-        },
+    emits: ['update:settings'],
+    mounted() {
+        if (!this.settings.adminEndpoint && !this.settings.graphqlEndpoint)
+            this.$emit('update:settings', {
+                ...this.settings,
+                privateData: { ...this.settings.privateData, adminEndpoint: 'wp-admin', graphqlEndpoint: 'graphql' },
+            });
     },
     methods: {
         setPrivateProp(key, value) {
-            this.$emit('update-settings', {
+            this.$emit('update:settings', {
                 ...this.settings,
                 privateData: { ...this.settings.privateData, [key]: value },
             });
         },
-    },
-    mounted() {
-        if (!this.settings.adminEndpoint && !this.settings.graphqlEndpoint)
-            this.$emit('update-settings', {
-                ...this.settings,
-                privateData: { ...this.settings.privateData, adminEndpoint: 'wp-admin', graphqlEndpoint: 'graphql' },
-            });
     },
 };
 </script>

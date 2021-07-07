@@ -1,10 +1,15 @@
 <template>
     <div class="wp-collection-edit">
         <wwEditorFormRow label="Query" required>
-            <template slot="append-label" v-if="plugin.settings.privateData.url">
+            <template v-if="plugin.settings.privateData.url" #append-label>
                 <a class="wp-collection-edit__link" :href="graphqlUrl" target="_blank"> Construct query here </a>
             </template>
-            <wwCodeEditor :value="query.query" @input="setProp('query', $event)" language="graphql" large />
+            <wwCodeEditor
+                :model-value="query.query"
+                language="graphql"
+                large
+                @update:modelValue="setProp('query', $event)"
+            />
         </wwEditorFormRow>
     </div>
 </template>
@@ -15,18 +20,8 @@ export default {
         plugin: { type: Object, required: true },
         config: { type: Object, required: true },
     },
-    watch: {
-        isSetup: {
-            immediate: true,
-            handler(value) {
-                this.$emit('update-is-valid', value);
-            },
-        },
-    },
+    emits: ['update:config'],
     computed: {
-        isSetup() {
-            return !!this.query.query;
-        },
         query() {
             return {
                 query: `query MyQuery {
@@ -53,13 +48,13 @@ export default {
             return `${this.plugin.settings.privateData.url}/${this.plugin.settings.privateData.adminEndpoint}/admin.php?page=graphiql-ide`;
         },
     },
+    mounted() {
+        this.$emit('update:config', this.query);
+    },
     methods: {
         setProp(key, value) {
-            this.$emit('update-config', { ...this.query, [key]: value });
+            this.$emit('update:config', { ...this.query, [key]: value });
         },
-    },
-    mounted() {
-        this.$emit('update-config', this.query);
     },
 };
 </script>
