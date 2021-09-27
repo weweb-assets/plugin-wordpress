@@ -1,7 +1,7 @@
 <template>
     <div class="wp-settings-edit">
         <wwEditorFormRow required label="URL">
-            <wwEditorFormInput
+            <wwEditorInputText
                 type="text"
                 name="url"
                 placeholder="https://my-wordpress-url.com"
@@ -11,7 +11,7 @@
             />
         </wwEditorFormRow>
         <wwEditorFormRow label="Admin endpoint">
-            <wwEditorFormInput
+            <wwEditorInputText
                 type="text"
                 name="admin-endpoint"
                 placeholder="wp-admin"
@@ -21,7 +21,7 @@
             />
         </wwEditorFormRow>
         <wwEditorFormRow label="GraphQL endpoint">
-            <wwEditorFormInput
+            <wwEditorInputText
                 type="text"
                 name="graphql-endpoint"
                 placeholder="graphql"
