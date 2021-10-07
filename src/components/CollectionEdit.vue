@@ -4,7 +4,7 @@
             <template v-if="plugin.settings.privateData.url" #append-label>
                 <a class="wp-collection-edit__link" :href="graphqlUrl" target="_blank"> Construct query here </a>
             </template>
-            <wwCodeEditor
+            <wwEditorInputCode
                 :model-value="query.query"
                 language="graphql"
                 large
