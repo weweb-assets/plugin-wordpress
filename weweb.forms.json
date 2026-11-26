@@ -1,0 +1,53 @@
+{
+    "schemaVersion": 1,
+    "features": {
+        "datasource": true
+    },
+    "settings": {
+        "fields": [
+            {
+                "key": "url",
+                "label": "URL",
+                "type": "secret",
+                "storage": "privateData",
+                "normalize": "trimUrl",
+                "required": true,
+                "placeholder": "https://my-wordpress-url.com"
+            },
+            {
+                "key": "adminEndpoint",
+                "label": "Admin endpoint",
+                "type": "secret",
+                "storage": "privateData",
+                "placeholder": "wp-admin"
+            },
+            {
+                "key": "graphqlEndpoint",
+                "label": "GraphQL endpoint",
+                "type": "secret",
+                "storage": "privateData",
+                "placeholder": "graphql"
+            }
+        ]
+    },
+    "collection": {
+        "managementLink": "wordpress.queryEditor",
+        "fields": [
+            {
+                "key": "query",
+                "label": "Query",
+                "type": "source",
+                "language": "graphql",
+                "required": true,
+                "initial": "query MyQuery {\n    posts {\n        nodes {\n            title\n            slug\n            content(format: RENDERED)\n            excerpt\n            date\n            featuredImage {\n                node {\n                    altText\n                    link\n                }\n            }\n        }\n    }\n}"
+            }
+        ],
+        "summary": [
+            {
+                "field": "query",
+                "label": "Query:",
+                "empty": "-"
+            }
+        ]
+    }
+}
